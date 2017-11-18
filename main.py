@@ -9,6 +9,7 @@ from urllib import urlencode
 from urlparse import parse_qsl
 import xbmcgui
 import xbmcplugin
+import xbmcaddon
 
 # Get the plugin url in plugin:// notation.
 _url = sys.argv[0]
@@ -19,7 +20,7 @@ _handle = int(sys.argv[1])
 # Here we use a fixed set of properties simply for demonstrating purposes
 # In a "real life" plugin you will need to get info and links to video files/streams
 # from some web-site or online service.
-VIDEOS = {'Animals': [{'name': 'Crab',
+VIDEOS = {'Animalssss': [{'name': 'Crab',
                        'thumb': 'http://www.vidsplay.com/wp-content/uploads/2017/04/crab-screenshot.jpg',
                        'video': 'http://www.vidsplay.com/wp-content/uploads/2017/04/crab.mp4',
                        'genre': 'Animals'},

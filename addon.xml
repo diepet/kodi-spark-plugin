@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<addon id="plugin.video.example"
-version="2.2.0"
-name="Example Kodi Video Plugin"
-provider-name="Roman_V_M">
+<addon id="plugin.video.spark"
+version="1.0.0"
+name="Amiko Alien 2 Spark Video Plugin"
+provider-name="diepet">
 <requires>
   <import addon="xbmc.python" version="2.24.0"/>
 </requires>
@@ -10,9 +10,9 @@ provider-name="Roman_V_M">
   <provides>video</provides>
 </extension>
 <extension point="xbmc.addon.metadata">
-  <summary lang="en">Example Kodi Video Plugin</summary>
-  <description lang="en">An example video plugin for Kodi mediacenter.</description>
-  <disclaimer lang="en">Free sample videos are provided by www.vidsplay.com.</disclaimer>
+  <summary lang="en">Amiko Alien 2 Spark Video Plugin</summary>
+  <description lang="en">Amiko Alien 2 Spark Video Plugin</description>
+  <disclaimer lang="en">Source here: https://github.com/diepet/plugin.video.spark</disclaimer>
   <assets>
     <icon>icon.png</icon>
     <fanart>fanart.jpg</fanart>
@@ -20,6 +20,6 @@ provider-name="Roman_V_M">
     <screenshot>resources\screenshot-02.jpg</screenshot>
     <screenshot>resources\screenshot-03.jpg</screenshot>    
   </assets>
-  <news>Updated with latest artwork metadata</news>
+  <news>Plugin needed for Amiko Alien 2 owners (using Spark operative system)</news>
 </extension>
 </addon>
