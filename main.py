@@ -113,11 +113,9 @@ def list_channels(first_group_title, first_group_index, second_group_title, seco
     # Get Second Group
     channels = dec.get_channels(int(first_group_index), int(second_group_index))
     # Iterate through items group
-    i = 1
     for chan in channels:
         channel_name = chan['name']
-        channel_group_id = i
-        i = i + 1
+        channel_group_id = chan['group_id']
         list_item = xbmcgui.ListItem(label=channel_name)
         list_item.setInfo('video', {'title': channel_name, 'genre': channel_name})
         # Create a URL for a plugin recursive call.
@@ -144,10 +142,11 @@ def play_channel(channel_group_id):
     """
     # Create Decoder instance
     dec = decoder.Decoder(DECODER_IP_ADDRESS)
-    # Prepare Channel Stream
-    dec.get_channel_stream(channel_group_id)
+    # Get Channel Stream
+    # TODO to fix - 1
+    channel_stream_url = dec.get_channel_stream(int(channel_group_id) - 1)
     # Create a playable item with a path to play.
-    play_item = xbmcgui.ListItem(path='http://192.168.1.15/stream.m3u')
+    play_item = xbmcgui.ListItem(path=channel_stream_url)
     # Pass the item to the Kodi player.
     xbmcplugin.setResolvedUrl(_handle, True, listitem=play_item)
 
