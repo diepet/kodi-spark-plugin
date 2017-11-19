@@ -14,3 +14,4 @@ print 'Channels'
 channels = dec.get_channels(1, 10)
 print channels
 
+dec.get_channel_stream(1)

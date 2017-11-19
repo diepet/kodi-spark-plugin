@@ -113,14 +113,16 @@ def list_channels(first_group_title, first_group_index, second_group_title, seco
     # Get Second Group
     channels = dec.get_channels(int(first_group_index), int(second_group_index))
     # Iterate through items group
+    i = 1
     for chan in channels:
         channel_name = chan['name']
-        channel_prog_id = chan['prog_id']
+        channel_group_id = i
+        i = i + 1
         list_item = xbmcgui.ListItem(label=channel_name)
         list_item.setInfo('video', {'title': channel_name, 'genre': channel_name})
         # Create a URL for a plugin recursive call.
         # Example: plugin://plugin.video.example/?action=listing&category=Animals
-        url = get_url(action='play_channel', first_group_title=first_group_title, first_group_index=first_group_index, second_group_title=second_group_title, second_group_index=second_group_index, channel_name=channel_name, channel_prog_id=channel_prog_id)
+        url = get_url(action='play_channel', channel_group_id=channel_group_id)
         # Set 'IsPlayable' property to 'true'.
         # This is mandatory for playable items!
         list_item.setProperty('IsPlayable', 'true')
@@ -132,29 +134,22 @@ def list_channels(first_group_title, first_group_index, second_group_title, seco
     # Finish creating a virtual folder.
     xbmcplugin.endOfDirectory(_handle)
 
-def play_video(path):
+
+def play_channel(channel_group_id):
     """
     Play a video by the provided path.
 
     :param path: Fully-qualified video URL
     :type path: str
     """
+    # Create Decoder instance
+    dec = decoder.Decoder(DECODER_IP_ADDRESS)
+    # Prepare Channel Stream
+    dec.get_channel_stream(channel_group_id)
     # Create a playable item with a path to play.
-    play_item = xbmcgui.ListItem(path=path)
+    play_item = xbmcgui.ListItem(path='http://192.168.1.15/stream.m3u')
     # Pass the item to the Kodi player.
     xbmcplugin.setResolvedUrl(_handle, True, listitem=play_item)
-
-def play_channel(channel_prog_id):
-    """
-    Play a video by the provided path.
-
-    :param path: Fully-qualified video URL
-    :type path: str
-    """
-    # Create a playable item with a path to play.
-    #play_item = xbmcgui.ListItem(path=path)
-    # Pass the item to the Kodi player.
-    #xbmcplugin.setResolvedUrl(_handle, True, listitem=play_item)
 
 
 def router(paramstring):
@@ -178,7 +173,7 @@ def router(paramstring):
             list_channels(params['first_group_title'], params['first_group_index'], params['second_group_title'], params['second_group_index'])
         elif params['action'] == 'play_channel':
             # Play a video from a provided URL.
-            play_channel(params['channel_prog_id'])
+            play_channel(params['channel_group_id'])
         else:
             # If the provided paramstring does not contain a supported action
             # we raise an exception. This helps to catch coding errors,
