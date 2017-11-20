@@ -14,8 +14,8 @@ provider-name="diepet">
   <description lang="en">Amiko Alien 2 Spark Video Plugin</description>
   <disclaimer lang="en">Source here: https://github.com/diepet/plugin.video.spark</disclaimer>
   <assets>
-    <icon>icon.png</icon>
-    <fanart>fanart.jpg</fanart>
+    <icon>resources\icon.png</icon>
+    <fanart>resources\fanart.jpg</fanart>
     <screenshot>resources\screenshot-01.jpg</screenshot>
     <screenshot>resources\screenshot-02.jpg</screenshot>
     <screenshot>resources\screenshot-03.jpg</screenshot>    

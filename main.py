@@ -185,6 +185,10 @@ def router(paramstring):
         list_first_group()
 
 if __name__ == '__main__':
-    # Call the router function and pass the plugin call parameters to it.
-    # We use string slicing to trim the leading '?' from the plugin call paramstring
-    router(sys.argv[2][1:])
+
+    if not DECODER_IP_ADDRESS:
+        xbmcgui.Dialog().ok('Plugin Configuration Error', 'Please set the decoder IP in the plugin settings')
+    else:
+        # Call the router function and pass the plugin call parameters to it.
+        # We use string slicing to trim the leading '?' from the plugin call paramstring
+        router(sys.argv[2][1:])
