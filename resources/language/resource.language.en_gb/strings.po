@@ -1,4 +1,46 @@
-msgctxt "#42002"
-msgid "Decoder IP Address"
-msgstr "Decoder IP Address"
+# Amiko Alien 2 Plugin language file
+# Addon Name: Amiko Alien 2 Plugin
+# Addon id: plugin.video.spark
+# Addon Provider: diepet
 
+msgid ""
+msgstr ""
+"Project-Id-Version: Kodi Addons\n"
+"Report-Msgid-Bugs-To: diepet@mailinator.org\n"
+"POT-Creation-Date: 2017-21-11 11:01+0000\n"
+"PO-Revision-Date: 2017-21-11 11:01+0000\n"
+"Last-Translator: diepet\n"
+"Language-Team: English (http://www.transifex.com/projects/p/xbmc-addons/language/en/)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt "#30901"
+msgid "General"
+msgstr ""
+
+msgctxt "#30902"
+msgid "Decoder IP Address"
+msgstr ""
+
+msgctxt "#30903"
+msgid "First Channel Group"
+msgstr ""
+
+msgctxt "#30904"
+msgid "Second Channel Group"
+msgstr ""
+
+msgctxt "#30905"
+msgid "Plugin Configuration Error"
+msgstr ""
+
+msgctxt "#30906"
+msgid "Please set the decoder IP address in the plugin settings"
+msgstr ""
+
+msgctxt "#30907"
+msgid "Channels"
+msgstr ""

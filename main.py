@@ -12,13 +12,14 @@ import xbmcplugin
 import xbmcaddon
 import decoder
 
-DECODER_IP_ADDRESS = xbmcaddon.Addon().getSetting('decoderIPAddress');
+DECODER_IP_ADDRESS = xbmcaddon.Addon().getSetting('spark.video.decoderIPAddress');
 
 # Get the plugin url in plugin:// notation.
 _url = sys.argv[0]
 # Get the plugin handle as an integer number.
 _handle = int(sys.argv[1])
-
+# Get addon instance
+_addon = xbmcaddon.Addon()
 
 def get_url(**kwargs):
     """
@@ -38,7 +39,7 @@ def list_first_group():
     """
     # Set plugin category. It is displayed in some skins as the name
     # of the current section.
-    xbmcplugin.setPluginCategory(_handle, 'First Channel Group')
+    xbmcplugin.setPluginCategory(_handle, _addon.getLocalizedString(30903))
     # Set plugin content. It allows Kodi to select appropriate views
     # for this type of content.
     xbmcplugin.setContent(_handle, 'videos')
@@ -71,7 +72,7 @@ def list_second_group(first_group_title, first_group_index):
     """
     # Set plugin category. It is displayed in some skins as the name
     # of the current section.
-    xbmcplugin.setPluginCategory(_handle, first_group_title)
+    xbmcplugin.setPluginCategory(_handle, _addon.getLocalizedString(30904))
     # Set plugin content. It allows Kodi to select appropriate views
     # for this type of content.
     xbmcplugin.setContent(_handle, 'videos')
@@ -104,7 +105,7 @@ def list_channels(first_group_title, first_group_index, second_group_title, seco
     """
     # Set plugin category. It is displayed in some skins as the name
     # of the current section.
-    xbmcplugin.setPluginCategory(_handle, first_group_title)
+    xbmcplugin.setPluginCategory(_handle, _addon.getLocalizedString(30907))
     # Set plugin content. It allows Kodi to select appropriate views
     # for this type of content.
     xbmcplugin.setContent(_handle, 'videos')
@@ -187,7 +188,7 @@ def router(paramstring):
 if __name__ == '__main__':
 
     if not DECODER_IP_ADDRESS:
-        xbmcgui.Dialog().ok('Plugin Configuration Error', 'Please set the decoder IP in the plugin settings')
+        xbmcgui.Dialog().ok(_addon.getLocalizedString(30905), _addon.getLocalizedString(30906))
     else:
         # Call the router function and pass the plugin call parameters to it.
         # We use string slicing to trim the leading '?' from the plugin call paramstring

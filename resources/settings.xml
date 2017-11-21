@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <settings>
-    <category label="32001">
-        <setting label="Decoder IP Address" type="ipaddress" id="decoderIPAddress" default=""/>
+    <category label="30901">
+        <setting label="30902" type="ipaddress" id="spark.video.decoderIPAddress" default=""/>
     </category>
 </settings>
